@@ -51,9 +51,9 @@ function put()
 {
 	$origin = '/login/register';
 	extract($_POST, EXTR_SKIP);
-	if(!isset($username) or !isset($email) or !isset($password1) or !isset($password2) or !isset($genre) or !isset($age) or $genre < 1 or $genre > 3 or $age < 7 or $age > 61)
+	if(!isset($username) or !isset($email) or !isset($password1) or !isset($password2))
 		error(NOT_SET, $origin);
-	if(empty($username) or empty($email) or empty($password1) or empty($password2) or empty($genre) or empty($age))
+	if(empty($username) or empty($email) or empty($password1) or empty($password2))
 		error(VIDE, $origin);
 	if($password1 != $password2)
 		error(NOT_SAME, $origin);
