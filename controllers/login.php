@@ -41,8 +41,6 @@ function get()
 		error(INCORRECT, $origin);
 	}
 	extract($user);
-	if(!$active)
-		error(NOT_ACTIVE, $origin);
 	$_SESSION['user'] = new User($username, $password, $email, $type);
 	redirect('/');
 }
