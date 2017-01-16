@@ -14,6 +14,8 @@ function index()
 
 function register()
 {
+	echo $_SESSION['msg'];
+	$_SESSION['msg'] = '';
 	?>
 	<h1>Inscription</h1>
 	<form action="/login/put" method="post">
