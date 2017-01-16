@@ -21,19 +21,6 @@ function register()
 		<p><input type="text" name="username" placeholder="Pseudo"></p>
 		<p><input type="password" name="password1" placeholder="Mot de passe"></p>
 		<p><input type="password" name="password2" placeholder="Repeter le mot de passe"></p>
-		<p>Genre : <select name="genre">
-			<option value="1">Homme</option>
-			<option value="2">Femme</option>
-			<option value="3">Autre</option>
-		</select></p>
-		<p>Age : <select name="age">
-			<?php
-			for ($i=7; $i <= 60; $i++) { 
-				echo "<option value='".$i."'>".$i."</option>";
-			}
-			?>
-			<option value="61">Plus</option>
-		</select></p>
 		<p><input type="submit" value="Creer le compte"></p>
 	</form>
 	<?php

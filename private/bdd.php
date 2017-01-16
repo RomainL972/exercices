@@ -36,7 +36,7 @@ function bddGetUser($username, $password=NULL)
 function bddPutUser($username, $password, $email, $age, $genre)
 {
 	$mysqli = bddConnect();
-	$stmt = $mysqli->prepare("INSERT INTO users(username, password, email, active, age, genre) VALUES (?, ?, ?, 0, ?, ?)") or error("Echec de la preparation : (".$mysqli->errno.") ".$mysqli->error);
+	$stmt = $mysqli->prepare("INSERT INTO users(username, password, email) VALUES (?, ?, ?,)") or error("Echec de la preparation : (".$mysqli->errno.") ".$mysqli->error);
 	$stmt->bind_param('sss', $username, $password, $email, $age, $genre) or error("Echec lors de l'ajout des parametres : (" . $mysqli->errno . ") " . $mysqli->error);
 	$stmt->execute();
 	$mysqli->close();
