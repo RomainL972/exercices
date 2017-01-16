@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule ^public/(.*)$ public/$1 [L]
+RewriteRule ^Jeux/(.*)$ Jeux/$1 [L]
+RewriteRule ^adminer\.php(.*)$ adminer.php$1 [L]
+RewriteRule ^.*$ dispatcher.php
