@@ -19,7 +19,6 @@ function bddGetUser($username, $password=NULL)
 	else {
 		$stmt = $mysqli->prepare("SELECT * FROM users WHERE (username = ? OR email = ?) AND password=?") or error("Echec de la preparation : (".$mysqli->errno.") ".$mysqli->error);
 		$stmt->bind_param('sss', $username, $username, $password) or error("Echec lors de l'ajout des parametres : (" . $mysqli->errno . ") " . $mysqli->error);
-		die(print_r(compact(explode(' ', 'username password mysqli stmt'))));
 	}
 	$stmt->execute();
 	$res = $stmt->get_result();
@@ -27,6 +26,7 @@ function bddGetUser($username, $password=NULL)
 		return 0;
 	}
 	$row = $res->fetch_assoc();
+	// die(print_r(compact(explode(' ', 'username password mysqli stmt row res'))));
 	$mysqli->close();
 	$stmt->close();
 	$res->close();
