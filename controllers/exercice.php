@@ -2,6 +2,7 @@
 function get($num)
 {
 	extract($_POST);
+	head('Exercice '.$num);
 	switch ($num) {
 		case 1:
 			if(!isset($answer)){

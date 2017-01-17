@@ -13,12 +13,13 @@ require_once "controllers/${controller}.php";
 
 if(!function_exists($action))
 	error(NOT_FOUND);
-
+// die(print_r(compact(explode(' ', 'query_args'))));
 $param = array();
 if(!empty($query_args[2])) {
-	for ($i = 0; $i <= count($query_args) - 2; $i++) { 
-		$param[$i] = $query_args($i + 2);
+	for ($i = 0; $i < count($query_args) - 2; $i++) { 
+		$param[$i] = $query_args[$i + 2];
 	}
 }
+// die(print_r(compact(explode(' ', 'query_args param'))));
 call_user_func_array($action, $param);
 ?>

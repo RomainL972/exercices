@@ -5,5 +5,5 @@ function index()
 	if(!defined('username')){
 		redirect('/login');
 	}
-	echo "Bonjour ".username;
+	redirect('/exercice/get/1');
 }

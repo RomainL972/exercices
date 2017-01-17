@@ -1,6 +1,8 @@
 <?php
 function index()
 {
+	echo $_SESSION['msg'];
+	$_SESSION['msg'] = '';
 	?>
 	<h1>Connexion</h1>
 	<form action="/login/get" method="post">

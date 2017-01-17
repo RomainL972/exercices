@@ -43,3 +43,21 @@ function bddPutUser($username, $password, $email)
 	$mysqli->close();
 	$stmt->close();
 }
+
+function bddGetTchat()
+{
+	$mysqli = bddConnect();
+	$stmt = $mysqli->query('SELECT pseudo, message, DAY(`date`) AS jour, MONTH(`date`) AS mois, YEAR(`date`) AS annee, HOUR(`date`) AS heure, MINUTE(`date`) AS minute, SECOND(`date`) AS seconde FROM tchat ORDER BY `date` DESC LIMIT 10') or error($mysqli->error);
+	$mysqli->close();
+	return $stmt;
+}
+
+function bddPutTchat($pseudo, $message)
+{
+	$mysqli = bddConnect();
+	$stmt = $mysqli->prepare('INSERT INTO tchat(pseudo, message, `date`) VALUES(?, ?, NOW())') or error("Echec : ".$mysqli->error);
+	$stmt->bind_param('ss', $pseudo, $message);
+	$stmt->execute();
+	$mysqli->close();
+	$stmt->close();
+}

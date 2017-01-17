@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/MArtinique');
 require_once 'objects.php';
 session_start();
 if (file_exists('private/localhost.php')) {
@@ -25,15 +26,16 @@ function head($title)
         <title><?php echo $title;?></title>
     </head>
     <body>
-
-    </body>
-</html>
 	<?php
+	if (defined('username')) {
+		echo "<p>Bonjour ".username."</p>";
+	}
 }
 
 function redirect($to)
 {
 	header('Location:'.$to);
+	die();
 }
 
 function error($error, $redirect=NULL)
