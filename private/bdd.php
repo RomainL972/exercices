@@ -33,7 +33,7 @@ function bddGetUser($username, $password=NULL)
 	return $row;
 }
 
-function bddPutUser($username, $password, $email, $age, $genre)
+function bddPutUser($username, $password, $email)
 {
 	$mysqli = bddConnect();
 	$stmt = $mysqli->prepare("INSERT INTO users(username, password, email) VALUES (?, ?, ?,)") or error("Echec de la preparation : (".$mysqli->errno.") ".$mysqli->error);

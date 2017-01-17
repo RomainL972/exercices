@@ -1,7 +1,7 @@
 <?php
 function index()
 {
-	head('CubeCity, Bienvenue dans la ville des Cubes !');
+	head('Exercices');
 	if(!defined('username')){
 		redirect('/login');
 	}
